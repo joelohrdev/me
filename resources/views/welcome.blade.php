@@ -4,6 +4,6 @@
         @include('partials.head')
     </head>
     <body class="flex items-center justify-center min-h-screen">
-        <x-logo class="w-24 h-24 text-gray-900" />
+        <x-logo class="w-24 h-24 text-gray-900 dark:text-gray-100" />
     </body>
 </html>
