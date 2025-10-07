@@ -1,9 +1,9 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.75 511.35">
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.75 511.35" {{ $attributes }}>
     <defs>
         <style>
             .cls-1 {
                 fill: none;
-                stroke: #4c5867;
+                stroke: currentColor;
                 stroke-linecap: round;
                 stroke-linejoin: round;
                 stroke-width: 21.29px;
