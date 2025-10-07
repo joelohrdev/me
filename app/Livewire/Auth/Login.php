@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Auth;
 
 use App\Models\User;
@@ -15,7 +17,7 @@ use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 #[Layout('components.layouts.auth')]
-class Login extends Component
+final class Login extends Component
 {
     #[Validate('required|string|email')]
     public string $email = '';
@@ -58,7 +60,7 @@ class Login extends Component
     /**
      * Validate the user's credentials.
      */
-    protected function validateCredentials(): User
+    private function validateCredentials(): User
     {
         $user = Auth::getProvider()->retrieveByCredentials(['email' => $this->email, 'password' => $this->password]);
 
@@ -76,7 +78,7 @@ class Login extends Component
     /**
      * Ensure the authentication request is not rate limited.
      */
-    protected function ensureIsNotRateLimited(): void
+    private function ensureIsNotRateLimited(): void
     {
         if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
             return;
@@ -97,7 +99,7 @@ class Login extends Component
     /**
      * Get the authentication rate limiting throttle key.
      */
-    protected function throttleKey(): string
+    private function throttleKey(): string
     {
         return Str::transliterate(Str::lower($this->email).'|'.request()->ip());
     }
